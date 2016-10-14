@@ -18,4 +18,18 @@ func main() {
 	b[0] = "head"
 	fmt.Println(b)
 
+	var s []int
+	if nil == s {
+		fmt.Println("nil == (var s []int)")
+	} else {
+		fmt.Println("nil != (var s []int)")
+	}
+
+	x := []int{}
+	if nil == x {
+		fmt.Println("nil == (x := []int{})")
+	} else {
+		fmt.Println("nil != (x := []int{})")
+	}
+
 }
