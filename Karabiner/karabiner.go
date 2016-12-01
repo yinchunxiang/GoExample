@@ -9,7 +9,8 @@ import (
 )
 
 const (
-	file = "/Users/yinchunxiang/.karabiner.d/configuration/karabiner.json"
+	file    = "/Users/yinchunxiang/.karabiner.d/configuration/karabiner.json"
+	bakfile = "/Users/yinchunxiang/.karabiner.d/configuration/karabiner.json.bak"
 )
 
 type NameMap struct {
@@ -44,7 +45,7 @@ func main() {
 		return
 	}
 
-	fmt.Println(string(bytes))
+	///fmt.Println(string(bytes))
 
 	json, _ := simplejson.NewJson(bytes)
 	array, _ := json.Get("profiles").Array()
@@ -56,6 +57,9 @@ func main() {
 			m["selected"] = false
 		}
 	}
-	jsonstr, _ := json.EncodePretty()
-	fmt.Println(string(jsonstr))
+	newbytes, _ := json.EncodePretty()
+	///fmt.Println(string(newbytes))
+	os.Rename(file, bakfile)
+	ioutil.WriteFile(file, newbytes, 0644)
+
 }
