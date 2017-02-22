@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -18,7 +19,16 @@ func test() error {
 		return p
 	}
 	return nil
+}
 
+type Void interface{}
+
+type Response struct {
+	*Void
+}
+
+type Foo struct {
+	Bar string `json:"bar"`
 }
 
 func main() {
@@ -30,5 +40,9 @@ func main() {
 		fmt.Println("e is not nil")
 
 	}
+
+	resp := &Response{&Foo{Bar: "xxx"}}
+	b, _ := json.Marshal(resp)
+	fmt.Println(string(b))
 
 }

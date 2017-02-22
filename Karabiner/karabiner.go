@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	file    = "/Users/yinchunxiang/.karabiner.d/configuration/karabiner.json"
-	bakfile = "/Users/yinchunxiang/.karabiner.d/configuration/karabiner.json.bak"
+	file    = "/Users/yinchunxiang/.config/karabiner/karabiner.json"
+	bakfile = "/Users/yinchunxiang/.config/karabiner/karabiner.json.bak"
 )
 
 type NameMap struct {
