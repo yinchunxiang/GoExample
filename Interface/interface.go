@@ -21,14 +21,12 @@ func test() error {
 	return nil
 }
 
-type Void interface{}
-
-type Response struct {
-	*Void
-}
-
 type Foo struct {
 	Bar string `json:"bar"`
+}
+
+type HelloWorld struct {
+	Ai interface{}
 }
 
 func main() {
@@ -41,8 +39,8 @@ func main() {
 
 	}
 
-	resp := &Response{&Foo{Bar: "xxx"}}
-	b, _ := json.Marshal(resp)
-	fmt.Println(string(b))
+	hw := &HelloWorld{&Foo{Bar: "bar"}}
+	hwbytes, _ := json.Marshal(hw)
+	fmt.Println(string(hwbytes))
 
 }
